@@ -24,8 +24,11 @@ jobs:
       run: dotnet restore
     - name: Install dotnet-format
       run: dotnet tool install -g dotnet-format
-    - name: Run dotnet format
-      run: dotnet formatm --check
+    - name: Check format code
+      run: |
+        dotnet tool install --global dotnet-format
+        dotnet format --verify-no-changes || (echo "Formatting issues found. Please run 'dotnet format' locally." && exit 1)
+
     - name: Build
       run: dotnet build --no-restore
     - name: Test
