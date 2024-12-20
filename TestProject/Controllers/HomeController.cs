@@ -13,12 +13,16 @@ namespace TestProject.Controllers
             _logger = logger;
         }
 
+
+
         public IActionResult Index()
         {
-            var name = "Zehra";
+                        var name = "Zehra";
 
-            return View();
-        }
+            
+            
+                   return View();
+          }
 
         public IActionResult Privacy()
         {
@@ -27,7 +31,7 @@ namespace TestProject.Controllers
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
-        {
+ {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
